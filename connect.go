@@ -1,6 +1,6 @@
 package main
 
-// querying all rows from the database with Go lang sql package
+// query Postgreqsl database version
 import (
 	"database/sql"
 	"fmt"
