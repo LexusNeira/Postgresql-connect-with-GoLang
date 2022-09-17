@@ -17,14 +17,11 @@ const (
 )
 
 var (
-	name string
+	version string
 )
 
 func main() {
-	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s "+
-		"password=%s dbname=%s sslmode=disable",
-		host, port, user, password, dbname)
-
+	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s "+"password=%s dbname=%s sslmode=disable",host, port, user, password, dbname)
 	db, err := sql.Open("postgres", psqlInfo)
 	if err != nil {
 		panic(err)
@@ -36,11 +33,11 @@ func main() {
 	}
 	defer rows.Close()
 	for rows.Next() {
-		err := rows.Scan(&name)
+		err := rows.Scan(&version)
 		if err != nil {
 			panic(err)
 		}
-		fmt.Println("\n", name)
+		fmt.Println("\n", version)
 	}
 	err = rows.Err()
 	if err != nil {
