@@ -1,6 +1,6 @@
 package main
 
-// query Postgreqsl database version
+// query Postgresql database version
 import (
 	"database/sql"
 	"fmt"
